@@ -1,0 +1,46 @@
+{
+  "timestamp": "2025-08-12T21:33:14.515Z",
+  "url": "http://localhost:3000",
+  "strategy": "mobile",
+  "lighthouseResult": {
+    "performance": 95,
+    "accessibility": 92,
+    "bestPractices": 95,
+    "seo": 94
+  },
+  "coreWebVitals": {
+    "lcp": 1800,
+    "fid": 85,
+    "cls": 0.08,
+    "inp": 150
+  },
+  "metrics": {
+    "firstContentfulPaint": 1200,
+    "largestContentfulPaint": 1800,
+    "totalBlockingTime": 250,
+    "cumulativeLayoutShift": 0.08,
+    "speedIndex": 1500,
+    "timeToInteractive": 3200
+  },
+  "opportunities": [
+    {
+      "title": "Eliminate render-blocking resources",
+      "description": "Remove render-blocking resources to improve above-the-fold load time",
+      "score": 0.95,
+      "wastedMs": 150
+    },
+    {
+      "title": "Reduce unused CSS",
+      "description": "Remove unused CSS to reduce bytes consumed by network activity",
+      "score": 0.98,
+      "wastedBytes": 25000
+    }
+  ],
+  "diagnostics": {
+    "numRequests": 15,
+    "totalByteWeight": 450000,
+    "domSize": 1250,
+    "maxRtt": 45,
+    "maxServerLatency": 120
+  }
+}

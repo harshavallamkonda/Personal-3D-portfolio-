@@ -1,0 +1,39 @@
+{
+  "name": "harsha-portfolio",
+  "version": "1.0.0",
+  "description": "Ultra-high-performance personal portfolio website for Harsha Vallamkonda",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npm run build && npm run serve",
+    "build": "npm run build:css && npm run build:js && npm run build:html",
+    "build:css": "sass styles/main.scss:styles/main.css --style=compressed",
+    "build:js": "esbuild scripts/main.js --bundle --minify --outfile=scripts/main.min.js",
+    "build:html": "node scripts/build-html.js",
+    "serve": "npx http-server . -p 3000 -o",
+    "test:lighthouse": "lighthouse http://localhost:3000 --output=json --output-path=./tests/benchmarks/score-reports/lighthouse-report.json",
+    "test:psi": "node scripts/test-pagespeed.js",
+    "optimize:images": "node scripts/optimize-images.js",
+    "deploy": "npm run build && npm run test:lighthouse"
+  },
+  "keywords": [
+    "portfolio",
+    "3D",
+    "Three.js",
+    "performance",
+    "webgl",
+    "frontend"
+  ],
+  "author": "Harsha Vallamkonda",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.19.0",
+    "sass": "^1.69.0",
+    "http-server": "^14.1.1",
+    "lighthouse": "^11.4.0",
+    "sharp": "^0.32.6"
+  },
+  "dependencies": {
+    "three": "^0.158.0",
+    "gsap": "^3.12.2"
+  }
+}
