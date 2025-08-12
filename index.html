@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsha Vallamkonda - Frontend Engineer & 3D Web Developer | Portfolio</title>
+    <meta name="description" content="Professional portfolio of Harsha Vallamkonda - Frontend Engineer specializing in 3D web development, Three.js, and high-performance web applications. View projects, skills, and experience.">
+    <meta name="keywords" content="Harsha Vallamkonda, frontend engineer, 3D web developer, Three.js portfolio, webgl developer, frontend developer, web developer">
+    <meta name="author" content="Harsha Vallamkonda">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://harsha-vallamkonda.com/">
+    <meta property="og:title" content="Harsha Vallamkonda - Frontend Engineer & 3D Web Developer">
+    <meta property="og:description" content="Professional portfolio showcasing 3D web development, Three.js projects, and frontend engineering expertise.">
+    <meta property="og:image" content="https://harsha-vallamkonda.com/assets/images/harsha-profile.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://harsha-vallamkonda.com/">
+    <meta property="twitter:title" content="Harsha Vallamkonda - Frontend Engineer & 3D Web Developer">
+    <meta property="twitter:description" content="Professional portfolio showcasing 3D web development, Three.js projects, and frontend engineering expertise.">
+    <meta property="twitter:image" content="https://harsha-vallamkonda.com/assets/images/harsha-profile.jpg">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://harsha-vallamkonda.com/">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles/main.css" as="style">
+    <link rel="preload" href="scripts/main.min.js" as="script">
+    <link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS Inlined -->
+    <style>
+        /* Critical CSS for above-the-fold content */
+        :root {
+            --primary-black: #000000;
+            --primary-yellow: #FFD700;
+            --secondary-yellow: #FFEA70;
+            --text-white: #FFFFFF;
+            --text-gray: #CCCCCC;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--primary-black);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+        }
+        
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .hero h1 {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            color: var(--primary-yellow);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-yellow), var(--secondary-yellow));
+            color: var(--primary-black);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+        
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+        
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--glass-border);
+            border-top: 3px solid var(--primary-yellow);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: clamp(2rem, 6vw, 3rem);
+            }
+            
+            .hero p {
+                font-size: clamp(1rem, 2.5vw, 1.2rem);
+                padding: 0 1rem;
+            }
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .cta-button:hover {
+                transform: none;
+            }
+            
+            .spinner {
+                animation: none;
+            }
+        }
+    </style>
+    
+    <!-- Non-critical CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+    </div>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Harsha Vallamkonda</h1>
+            <p>Frontend Engineer & 3D Web Developer</p>
+            <p>Creating immersive digital experiences with cutting-edge web technologies</p>
+            <a href="#about" class="cta-button">Explore My Work</a>
+        </div>
+        
+        <!-- 3D Scene Container -->
+        <div id="three-container" class="three-container"></div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a passionate Frontend Engineer with expertise in 3D web development, specializing in Three.js and WebGL technologies. I create high-performance, interactive web experiences that push the boundaries of what's possible in the browser.</p>
+                    <p>With a strong foundation in modern web technologies and a keen eye for performance optimization, I build applications that are not only visually stunning but also lightning-fast and accessible to all users.</p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Frontend Technologies</h3>
+                        <ul>
+                            <li>React.js & Next.js</li>
+                            <li>TypeScript</li>
+                            <li>Three.js & WebGL</li>
+                            <li>GSAP Animations</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Performance & Optimization</h3>
+                        <ul>
+                            <li>Core Web Vitals</li>
+                            <li>Lighthouse Optimization</li>
+                            <li>Bundle Optimization</li>
+                            <li>Image Optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">3D Web Experience</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Interactive 3D Portfolio</h3>
+                        <p>A high-performance 3D portfolio built with Three.js, featuring smooth animations and optimized rendering for exceptional user experience.</p>
+                        <div class="project-tech">
+                            <span>Three.js</span>
+                            <span>WebGL</span>
+                            <span>GSAP</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">Performance App</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Performance-Optimized Web App</h3>
+                        <p>Built with a focus on Core Web Vitals, achieving 95+ Lighthouse scores through strategic optimization and modern web techniques.</p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Performance</span>
+                            <span>Lighthouse</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder">3D Scene</div>
+                    </div>
+                    <div class="project-content">
+                        <h3>3D Interactive Scene</h3>
+                        <p>An immersive 3D environment with real-time lighting, physics, and user interaction, optimized for smooth 60fps performance.</p>
+                        <div class="project-tech">
+                            <span>Three.js</span>
+                            <span>Physics</span>
+                            <span>WebGL</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Work Together</h3>
+                    <p>I'm always interested in new opportunities and exciting projects. Whether you have a question or just want to say hi, feel free to reach out!</p>
+                    <div class="contact-methods">
+                        <a href="mailto:harsha@example.com" class="contact-link">
+                            <span class="contact-icon">📧</span>
+                            harsha@example.com
+                        </a>
+                        <a href="https://linkedin.com/in/harsha-vallamkonda-706a09190" class="contact-link" target="_blank" rel="noopener">
+                            <span class="contact-icon">💼</span>
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Harsha Vallamkonda. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#accessibility">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Harsha Vallamkonda",
+        "jobTitle": "Frontend Engineer",
+        "description": "Frontend Engineer specializing in 3D web development and Three.js",
+        "url": "https://harsha-vallamkonda.com",
+        "sameAs": [
+            "https://linkedin.com/in/harsha-vallamkonda-706a09190"
+        ],
+        "knowsAbout": [
+            "Three.js",
+            "WebGL",
+            "Frontend Development",
+            "Performance Optimization",
+            "React.js"
+        ]
+    }
+    </script>
+    
+    <!-- Scripts -->
+    <script src="scripts/main.min.js" defer></script>
+</body>
+</html>

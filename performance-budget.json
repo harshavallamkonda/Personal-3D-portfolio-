@@ -1,0 +1,84 @@
+{
+    "performance": {
+        "lighthouse": {
+            "performance": 95,
+            "accessibility": 90,
+            "best-practices": 90,
+            "seo": 90
+        },
+        "core-web-vitals": {
+            "lcp": 2500,
+            "fid": 100,
+            "cls": 0.1,
+            "inp": 200
+        },
+        "timing": {
+            "first-contentful-paint": 1500,
+            "largest-contentful-paint": 2500,
+            "time-to-interactive": 3500,
+            "total-blocking-time": 300
+        }
+    },
+    "budgets": {
+        "resourceSizes": [
+            {
+                "resourceType": "script",
+                "budget": 150
+            },
+            {
+                "resourceType": "total",
+                "budget": 500
+            },
+            {
+                "resourceType": "image",
+                "budget": 200
+            },
+            {
+                "resourceType": "stylesheet",
+                "budget": 50
+            }
+        ],
+        "resourceCounts": [
+            {
+                "resourceType": "script",
+                "budget": 5
+            },
+            {
+                "resourceType": "total",
+                "budget": 20
+            },
+            {
+                "resourceType": "image",
+                "budget": 10
+            },
+            {
+                "resourceType": "stylesheet",
+                "budget": 2
+            }
+        ]
+    },
+    "targets": {
+        "mobile": {
+            "connection": "3G",
+            "device": "mobile",
+            "cpu": "slow"
+        },
+        "desktop": {
+            "connection": "cable",
+            "device": "desktop",
+            "cpu": "fast"
+        }
+    },
+    "thresholds": {
+        "critical": {
+            "lcp": 2000,
+            "cls": 0.05,
+            "inp": 150
+        },
+        "warning": {
+            "lcp": 2500,
+            "cls": 0.1,
+            "inp": 200
+        }
+    }
+}

@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Harsha Vallamkonda
+N:Vallamkonda;Harsha;;;
+ORG:Frontend Engineer & 3D Web Developer
+TITLE:Frontend Engineer
+EMAIL:harsha@example.com
+URL:https://harsha-vallamkonda.com
+URL:https://linkedin.com/in/harsha-vallamkonda-706a09190
+TEL;TYPE=WORK:+1-555-0123
+ADR;TYPE=WORK:;;123 Web Street;Tech City;CA;12345;USA
+NOTE:Passionate Frontend Engineer specializing in 3D web development, Three.js, and performance optimization. Creating immersive digital experiences with cutting-edge web technologies.
+PHOTO;VALUE=URI:https://harsha-vallamkonda.com/assets/images/harsha-profile.jpg
+REV:2024-01-15T00:00:00Z
+END:VCARD
